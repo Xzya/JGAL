@@ -43,7 +43,7 @@ public class DropWave {
         .setSelector(Selectors.uniform())
         .setMutator(Mutators.realGaussian(minrange, maxrange))
         .setMinimax(Consts.MINIMIZE)
-        .setInitializator(Initializers.real(minrange, maxrange, n))
+        .setInitializer(Initializers.real(minrange, maxrange, n))
         .setTerminationCriteria(TerminationCriterias.scoreCriteria(targetScore, precision))
         .setFitnessFunction(new FitnessFunction() {
             @Override

@@ -115,7 +115,7 @@ public class TSP {
         .setSelector(Selectors.uniform())
         .setMutator(Mutators.swap())
         .setMinimax(Consts.MINIMIZE)
-        .setInitializator(Initializers.integerPermutation(minrange, maxrange))
+        .setInitializer(Initializers.integerPermutation(minrange, maxrange))
         .setFitnessFunction(new FitnessFunctionTSP(matrix))
         .setGenerations(generations)
         .setPopulationSize(populationSize)

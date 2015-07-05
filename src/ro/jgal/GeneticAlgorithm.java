@@ -280,7 +280,7 @@ public class GeneticAlgorithm {
         return selector;
     }
 
-    public GeneticAlgorithm setInitializator(Initializer initializer) {
+    public GeneticAlgorithm setInitializer(Initializer initializer) {
         this.initializer = initializer;
         return this;
     }

@@ -65,7 +65,7 @@ public class NQueens {
         .setSelector(Selectors.uniform())
         .setMutator(Mutators.swap())
         .setMinimax(Consts.MINIMIZE)
-        .setInitializator(Initializers.integerPermutation(minrange, maxrange))
+        .setInitializer(Initializers.integerPermutation(minrange, maxrange))
         .setTerminationCriteria(TerminationCriterias.scoreCriteria(targetScore, precision))
         .setFitnessFunction(new FitnessFunction() {
             @Override

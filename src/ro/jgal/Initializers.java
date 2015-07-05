@@ -78,4 +78,15 @@ public class Initializers {
         return new InitializerBinaryString(length);
     }
 
+    /**
+     * String Initializer.
+     * 
+     * @param allowedCharacters - allowed characters
+     * @param length - length of the string
+     * @return - initializer
+     */
+    public static Initializer string(String allowedCharacters, int length) {
+        return new InitializerString(allowedCharacters, length);
+    }
+
 }

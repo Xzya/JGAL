@@ -38,7 +38,7 @@ public class Rosenbrock {
         .setSelector(Selectors.uniform())
         .setMutator(Mutators.realRange(minrange, maxrange))
         .setMinimax(Consts.MINIMIZE)
-        .setInitializator(Initializers.real(minrange, maxrange, n))
+        .setInitializer(Initializers.real(minrange, maxrange, n))
         .setFitnessFunction(new FitnessFunction() {
             @Override
             public double evaluate(Chromosome chromosome) {

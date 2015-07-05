@@ -41,7 +41,7 @@ public class RealGauss {
         .setCrossover(Crossovers.singlePoint())
         .setSelector(Selectors.uniform())
         .setMutator(Mutators.realGaussian(minrange, maxrange))
-        .setInitializator(Initializers.real(minrange, maxrange, n))
+        .setInitializer(Initializers.real(minrange, maxrange, n))
         .setMinimax(Consts.MAXIMIZE)
         .setTerminationCriteria(TerminationCriterias.scoreCriteria(targetScore, precision))
         .setFitnessFunction(new FitnessFunction() {

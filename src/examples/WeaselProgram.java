@@ -13,41 +13,48 @@ import ro.jgal.Selectors;
 import ro.jgal.TerminationCriterias;
 
 /**
- * One-Max problem is a simple problem consisting in
- * maximizing the number of ones of a binary string.
+ * Richard Dawkins's Weasel Program. 
+ * More info at: https://en.wikipedia.org/wiki/Weasel_program
  * 
  * @author Mihail Cristian Dumitru
  *
  */
-@SuppressWarnings({"rawtypes", "unchecked"})
-public class OneMax {
+@SuppressWarnings({"unchecked", "rawtypes"})
+public class WeaselProgram {
 
     public static void main(String[] args) {
 
-        int n = 100; //number of genes
-        double targetScore = n; //target score, the evolution will terminate when it is reached
-        int precision = 1; //precision of the target score
+        int n = 28; //number of genes
         int generations = 10000; //number of generations
         int populationSize = 100; //population size
-        double crossoverProbability = 0.8; //crossover probability
-        double mutationProbability = 1.0 / n; //mutation probability
+        double targetScore = n; //target score, the evolution will terminate when it is reached
+        int precision = 2; //precision of the target score
+        String allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+        double crossoverProbability = 1; //crossover probability
+        double mutationProbability = 0.05; //mutation probability
         int elitismReplacements = 5; //number of elitism replacements
 
         GeneticAlgorithm ga = new GeneticAlgorithm()
         .setCrossover(Crossovers.singlePoint())
         .setSelector(Selectors.uniform())
-        .setMutator(Mutators.flip())
+        .setMutator(Mutators.string(allowedCharacters))
         .setMinimax(Consts.MAXIMIZE)
-        .setInitializer(Initializers.binaryString(n))
+        .setInitializer(Initializers.string(allowedCharacters, n))
         .setTerminationCriteria(TerminationCriterias.scoreCriteria(targetScore, precision))
         .setFitnessFunction(new FitnessFunction() {
+
+            String targetString = "METHINKS IT IS LIKE A WEASEL";
+
             @Override
             public double evaluate(Chromosome chromosome) {
-                ArrayList<Integer> genes = chromosome.getGenes();
+                ArrayList<Character> genes = chromosome.getGenes();
+
                 double score = 0;
 
                 for (int i = 0; i < genes.size(); i++) {
-                    score += genes.get(i) * 1;
+                    if (genes.get(i).equals(targetString.charAt(i))) {
+                        score += 1;
+                    }
                 }
 
                 return score;

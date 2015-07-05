@@ -64,4 +64,14 @@ public class Mutators {
         return new MutatorFlip();
     }
 
+    /**
+     * String Mutator.
+     * 
+     * @param allowedCharacters - allowed characters
+     * @return - mutator
+     */
+    public static Mutator string(String allowedCharacters) {
+        return new MutatorString(allowedCharacters);
+    }
+
 }
